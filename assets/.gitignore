@@ -1,0 +1,11 @@
+/*
+!.gitignore
+!AppAsset.php
+!/AdminLTE-2.4.12
+!/asset_admin
+!/css
+!/editor
+!/js
+!LoginAsset.php
+!PhieuAsset.php
+!QrAsset.php

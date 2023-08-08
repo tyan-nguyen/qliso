@@ -1,0 +1,472 @@
+.check-error{
+	background-color: #f39c12;
+	padding:10px;
+}
+.check-error p, .check-error div, .check-error span,.check-error tr, .check-error td, .check-error label{
+	color:white;
+}
+
+.span-button{
+	cursor:pointer;
+}
+
+[type="radio"] {
+    visibility: hidden; /* hide default radio button */
+  /* you may need to adjust margin here, too */
+}
+[type="radio"]::before { /* create pseudoelement */
+    border: 2px solid gray; /* thickness, style, color */
+    height: .9em; /* height adjusts with font */
+    width: .9em; /* width adjusts with font */
+    border-radius: 50%; /* make it round */
+    display: block; /* or flex or inline-block */
+    content: " "; /* won't display without this */
+    cursor: pointer; /* appears clickable to mouse users */
+    visibility: visible; /* reverse the 'hidden' above */
+}
+
+[type="radio"]:checked::before { /* selected */
+  /* add middle dot when selected */
+  /* slightly bigger second value makes it smooth */
+  /* even more (e.g., 20% 50%) would make it fuzzy */
+    background: radial-gradient(black 90%, transparent 38%);
+}
+
+input[type='checkbox']:checked {
+  background-color: black;
+}
+/* input[type='checkbox']:checked:after {
+  content: '\2713';
+  color:white;
+} */
+input[type='checkbox']{
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  width: 20px !important;
+  height: 20px !important;
+  appearance:none;
+  border-radius:10%;
+  border: 1px solid rgb(60,69,77,0.9);
+  box-shadow: none;
+
+}
+
+
+
+.linkTextBold{
+	font-weight:bold;
+	color: black;
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered {
+    padding-top: 3px !important;
+}
+
+.div-with-scroll-down{
+  height: 100px;
+  overflow-y: scroll;
+  border-top: 1px solid #ddd;
+}
+ .div-with-scroll-down::-webkit-scrollbar {
+          -webkit-appearance: none;
+        }
+.div-with-scroll-down::-webkit-scrollbar:vertical {
+          width: 11px;
+        }
+.div-with-scroll-down::-webkit-scrollbar-thumb {
+          background-color: darken(#ebecf0, 15);
+          border-right: 5px solid #ebecf0;
+        }
+
+.mb-show{
+	display: none;
+}
+.text-left-center{
+	text-align: left;
+}
+.hr-hidden-xs{
+	border-color:#3c8dbc;
+	margin: 10px 15px 0px 15px;
+}
+.d-cover{
+	width:100%;
+	min-height:510px;
+	background: url(tvu.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.d-contact .box{
+	border-top:0;
+	box-shadow: 0 !important;
+}
+.d-contact .direct-chat-text{
+	width:50%;
+}
+
+.d-contact .direct-chat-messages{
+	height:650px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+ .d-contact .direct-chat-messages::-webkit-scrollbar {
+          -webkit-appearance: none;
+        }
+.d-contact .direct-chat-messages::-webkit-scrollbar:vertical {
+          width: 11px;
+        }
+.d-contact .direct-chat-messages::-webkit-scrollbar-thumb {
+          background-color: darken(#ebecf0, 15);
+          border-right: 5px solid #ebecf0;
+        }
+.content-less{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+.content-less-400{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 400px;
+}
+
+.label-number{
+	font-size:100%;
+	font-weight:bold;
+}
+.label-cou{
+	font-weight:bold;
+	color:red;
+}
+
+.tbl-header-info{
+	padding-left:25%;	
+}
+
+@media screen and (max-width: 767px)
+{
+	.container{
+		padding-left: 0px !important;
+		padding-right:0px !important;
+	}
+	
+	.pnSearchContent{
+		display: none;
+	}
+	
+	.mb-show{
+		display: inline-block;
+	}
+	.text-left-center{
+		text-align: center;
+	}
+	.hr-hidden-xs{
+		display: none;
+	}
+	.d-cover{
+		display:none;
+	}
+	.d-contact .direct-chat-text{
+		width:70%;
+	}
+	.tbl-header-info{
+		padding-left:0;	
+	}
+	
+}
+
+.content{
+	background: url(bgtrongdong.png) top center no-repeat;
+	/* background: url(bgtest.png) top center repeat; */
+}
+
+.box-thongke{
+	background: url(bgtrongdong.png) top center no-repeat !important;
+}
+
+/*for phieu khao sat*/
+.page-wrapper{
+	width:100%;
+	padding:10px;
+	background: url(bgtrongdong.png) top center no-repeat;
+	
+}
+
+.page-wrapper .khaosat-wrapper{
+	border:2px solid #ddd;
+	border-radius: 10px;
+	padding:20px;
+}
+
+
+.khaosat-wrapper{
+	max-width: 1100px;
+	margin:0 auto;
+	line-height: 22px;
+	padding:20px;
+	
+}
+
+.khaosat-wrapper p, .khaosat-wrapper table {
+	margin:10px 0 10px 0;
+}
+
+.khaosat-wrapper table p{
+	margin:5px 0 5px 0;
+}
+
+.khaosat-wrapper{
+	clear: both;
+}
+.khaosat-wrapper h2{
+	text-transform: uppercase;
+	text-align: center;
+}
+.khaosat-wrapper{
+	width:100%;
+	background-color: white;
+	font-size:16px;
+	line-height: 22px;
+	
+}
+.khaosat-wrapper .p-logo{
+	width:30%;
+	float: left;
+	text-align: center;
+}
+.khaosat-wrapper .p-logo img{
+	width: 	100px;
+	height: 100px
+}
+.khaosat-wrapper .p-text{
+	padding-top:25px;
+	width:70%;
+	float:left;
+	text-align: center;
+}
+.khaosat-wrapper .p-text .school-name{
+	font-weight: bold;
+	text-transform: uppercase;
+}
+.khaosat-wrapper .p-text .school-slogan{
+	font-style: italic;
+}
+.khaosat-wrapper .p-text hr{
+	width: 25%;
+	margin-top:5px;
+	border-top:1px solid black;
+}
+.khaosat-wrapper table:not(.tbl-header){
+	border-collapse: collapse;
+}
+.khaosat-wrapper table:not(.tbl-header) tr td{
+	border: 1px solid black;
+}
+.khaosat-wrapper input, .khaosat-wrapper textarea{
+	padding:5px;
+}
+
+.tbl-header .td-padding{
+	padding-left:20px;
+}
+/*end for phieu khao sat*/
+
+/* .table-list-sv tbody {
+    display:block;
+    max-height:300px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    }
+    thead tr, tbody tr {
+        display:table;
+        width:100%;
+        table-layout:fixed;
+    } */
+
+.modal-header .close{
+	fontsize: 30px !important;
+	color: blue;
+}
+
+.div-thumbnail-wrap{
+	max-width:100%;
+	min-height:100px;
+	margin-bottom:20px;
+}
+.div-thumbnail-wrap img{
+	width:100%;
+}
+
+/**list catalog in form post*/
+.list-catalog{
+	height: 250px;
+  	max-width: 100%;
+  	overflow-y: scroll;
+  	background-color: white;
+  	padding:5px 10px;
+}
+
+/** custom for ajax dialog */
+#ajaxCrudModal .modal-title{
+	color: #3c8dbc !important;
+}
+
+#ajaxCrudModal .modal-header {
+    /*border-bottom-color: #3c8dbc !important;*/
+    padding: 5px 10px !important;
+}
+
+#ajaxCrudModal .modal-header button{
+    color: #3c8dbc !important;
+    opacity: .8;
+    font-size: 30px;
+}
+#ajaxCrudModal .modal-header button:hover{
+    color:red !important;
+}
+
+/* error summary */
+.error-summary{
+	color: white;
+	padding:10px;
+	margin:0 10px 10px 10px;
+	background-color: #f39c12;
+}
+/*detail view*/
+.detail-view img{
+	max-width: 500px;
+}
+
+.dtview-image img{
+	max-width:100%;	
+}
+/*gridview*/
+.kv-grid-table img{
+	max-width:250px;
+}
+/*edittable*/
+.edit-margin-left{
+	margin-left:20px;
+}
+
+/*select 2*/
+.select2-container--default .select2-selection--multiple .select2-selection__choice__display {
+    color: red;
+}
+
+/*dropzone*/
+.dropzone {
+width: auto;
+height: 200px;
+min-height: 0px !important;
+}  
+
+/*form image display*/
+.form-img img{
+	width:300px;
+	height:200px;
+} 
+/*accorditon*/
+.panel-heading .accordion-toggle:after {
+    /* symbol for "opening" panels */
+    font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
+    content: "\e114";    /* adjust as needed, taken from bootstrap.css */
+    float: right;        /* adjust as needed */
+    color: grey;         /* adjust as needed */
+}
+.panel-heading .accordion-toggle.collapsed:after {
+    /* symbol for "collapsed" panels */
+    content: "\e080";    /* adjust as needed, taken from bootstrap.css */
+}
+
+/*margin*/
+.margint5{
+	margin-top:5px;
+}
+
+.margint10{
+	margin-top:10px;
+}
+
+.marginb0{
+	margin-bottom: 0px;
+}
+
+.field-postcatalog-priority{
+	margin-bottom: 0px !important;
+}
+
+.field-postcatalog-priority .help-block{
+	display: none;
+}
+
+/*form*/
+.sButton, .sButtonGroup{
+	cursor:pointer;
+}
+
+/*arcodion 2*/
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.accordion .active, .accordion:hover {
+  background-color: #ccc;
+}
+
+.accordion:after {
+  content: '\002B';
+  color: #777;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.accordion .active:after {
+  content: "\2212";
+}
+
+.accordion .panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+.table-sv thead tr td{
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+	padding:5px;
+}
+
+.table-sv tbody tr td{
+	vertical-align: middle;
+	padding:5px;
+}
+
+.table-sv thead tr td{
+	border-top: 1px solid black !important;
+}
+
+/*custom*/
+.jumbotron{
+	background-color: #3c8dbc;
+	color:white;
+}

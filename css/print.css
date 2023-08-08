@@ -1,0 +1,79 @@
+body{
+	font-family: "Times New Roman", Times, serif;
+}
+
+.main{
+	width:595px;
+	margin:0 auto;
+
+}
+
+table {
+  border-collapse: collapse;
+  width:100%;
+}
+
+table, th, td {
+  border: 1px solid black;
+  margin: 2px 0;
+}
+
+td{
+	 padding:2px 5px;
+}
+
+.tbl-bottom{
+	border:0px;
+	width:100%;
+}
+
+.tbl-bottom td {
+  border: 0px solid black;
+  width:25%;
+}
+
+div{
+	width:100%;
+	
+}
+.title{
+	font-weight: bold;
+	font-size:150%;
+	text-align: center;
+}
+.date{
+	font-style:italic;
+	text-align: center;
+}
+
+.left{
+	text-align: left;
+}
+
+.right{
+	text-align: right;
+}
+
+.center{
+	text-align: center;
+}
+
+.bang-chu{
+	text-transform: lowercase;
+	display: block;
+	float:left;
+}
+
+.bang-chu::first-letter{
+  text-transform: capitalize;
+}
+
+.bold{
+	font-weight: bold;
+}
+
+.pagebreak { page-break-before: always; } /* page-break-after works, as well */
+
+.fsmall{
+	font-size:80%;
+}

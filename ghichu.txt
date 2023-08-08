@@ -1,0 +1,10 @@
+chua cau hinh token cho user trong editor
+
+
+
+---------------
+khi doi len hosting:
++nho doi duong dan trong filemanage lai cho:
+config/config.php: 'upload_dir' => '/ducthinhauto/web/uploaded/',
+
+
