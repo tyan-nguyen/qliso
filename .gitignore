@@ -34,9 +34,3 @@ tests/_support/_generated
 
 #vagrant folder
 /.vagrant
-
-*.7z
-*.rar
-*.sql
-*.psd
-*.zip
