@@ -19,8 +19,8 @@ class DocsSearch extends Docs
     public function rules()
     {
         return [
-            [['id', 'id_type', 'id_group', 'user_created'], 'integer'],
-            [['code', 'doc_name', 'doc_ext', 'doc_url', 'summary', 'date_created', 'doc_no', 'doc_summary', 'doc_date', 'doc_sign'], 'safe'],
+            [['id', 'id_type', 'id_group', 'user_created', 'doc_year', 'id_dm'], 'integer'],
+            [['code', 'doc_name', 'doc_ext', 'doc_url', 'summary', 'date_created', 'doc_no', 'doc_summary', 'doc_date', 'doc_sign', 'doc_year', 'id_room', 'idRoomParent'], 'safe'],
         ];
     }
 
@@ -40,12 +40,19 @@ class DocsSearch extends Docs
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search($params, $dm=NULL)
     {
         $query = Docs::find();
+        $query->joinWith(['room as ro']);
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'sort'=> [
+                'defaultOrder' => [
+                    'doc_year' => SORT_DESC,
+                    'id' => SORT_DESC
+                ]
+            ],
         ]);
 
         $this->load($params);
@@ -68,6 +75,8 @@ class DocsSearch extends Docs
             'user_created' => $this->user_created,
             'date_created' => $this->date_created,
             'doc_date' => $this->doc_date,
+            'doc_year' => $this->doc_year,
+            'id_room' => $this->id_room,
         ]);
         
         
@@ -80,7 +89,21 @@ class DocsSearch extends Docs
             ->andFilterWhere(['like', 'doc_no', $this->doc_no])
             ->andFilterWhere(['like', 'doc_summary', $this->doc_summary])
             ->andFilterWhere(['like', 'doc_sign', $this->doc_sign]);
-
+        
+        if($this->idRoomParent != null){
+            $query->andFilterWhere([
+                'ro.room_parent' => $this->idRoomParent,
+            ]);
+        }
+        
+        if($dm!=NULL){
+            $query->andFilterWhere([
+                'id_dm' => $dm,
+            ]);
+        } else {
+            $query->andWhere('id_dm IS NULL');
+        }
+            
         return $dataProvider;
     }
     

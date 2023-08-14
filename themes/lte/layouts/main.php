@@ -20,7 +20,7 @@ AppAsset::register($this);
 		}
 	</style>
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue-light sidebar-mini">
 <?php $this->beginBody() ?>
 <div class="wrapper">
 
@@ -30,7 +30,10 @@ AppAsset::register($this);
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini">QLISO<?php /* Html::img(Yii::getAlias('@web') . '/pks/img/logo1.png', ['style'=>'width:50px'])*/?></span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg">HỆ THỐNG QLISO<?php /* Html::img(Yii::getAlias('@web') . '/pks/img/logo1.png', ['style'=>'width:50px'])*/?></span>
+      <span class="logo-lg" style="font-size:13px;line-height: 16px;margin-top:7px;">
+      Hệ Thống quản lý chất lượng <br/>theo tiêu chuẩn ISO 9001 : 2015
+      
+      <?php /* Html::img(Yii::getAlias('@web') . '/pks/img/logo1.png', ['style'=>'width:50px'])*/?></span>
 
     </a>
     <!-- Header Navbar: style can be found in header.less -->
@@ -62,8 +65,9 @@ AppAsset::register($this);
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper container">
+  	<?php if ($this->title != NULL) : ?>
   	<section class="content-header">
-      <h1 style="text-transform: uppercase;">
+      <h1 style="text-transform: uppercase;margin-top:10px;">
         <?= $this->title ?>
         <!-- <small><?= $this->title ?></small> -->
       </h1>
@@ -72,6 +76,7 @@ AppAsset::register($this);
         <li class="active"><?= $this->title ?></li>
       </ol>
     </section>
+    <?php endif; ?>
     
     <!-- <hr style="margin: 10px 15px 0px 15px"/> -->
 

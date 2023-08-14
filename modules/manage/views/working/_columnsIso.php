@@ -17,18 +17,18 @@ return [
         // 'class'=>'\kartik\grid\DataColumn',
         // 'attribute'=>'id',
     // ],
-    [
+    /* [
         'class'=>'\kartik\grid\DataColumn',
         'attribute'=>'code',
         'options' => array('style' => 'width:50px'),
-    ],
-    [
+    ], */
+    /* [
         'class'=>'\kartik\grid\DataColumn',
         'attribute'=>'code',
         'value'=>'workingRoom.roomParent.room_name',
         'header'=>'Khoa',
         'options' => array('style' => 'width:100px'),
-    ],
+    ], */
     [
         'class'=>'\kartik\grid\DataColumn',
         'attribute'=>'id_room',
@@ -43,6 +43,15 @@ return [
     [
         'class'=>'\kartik\grid\DataColumn',
         'attribute'=>'date_exam',
+        'value'=>'dateExam',
+        'options' => array('style' => 'width:75px'),
+    ],
+    [
+        'class'=>'\kartik\grid\DataColumn',
+        'attribute'=>'memberListHtml',
+        'value'=>'memberListHtml',
+        'format'=>'raw',
+        'label'=>'Thành viên đoàn',
         'options' => array('style' => 'width:75px'),
     ],
   /*   [

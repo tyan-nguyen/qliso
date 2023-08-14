@@ -48,7 +48,7 @@ class Working extends \app\models\BmWorking
             'code' => 'Mã cuộc họp',
             'id_examination' => 'Kỳ kiểm tra',
             'id_room' => 'Phòng ban',
-            'date_exam' => 'Ngày họp',
+            'date_exam' => 'Thời gian đánh giá',
             'date_created' => 'Ngày tạo',
             'user_created' => 'Người tạo',
             'summary' => 'Ghi chú',
@@ -153,11 +153,25 @@ class Working extends \app\models\BmWorking
             else
                 return '';
     }
-    
     /**
      * show working name
      */
+    public function getWorkingName(){
+        return $this->workingExamination->name . ' tại đơn vị ' . $this->workingRoom->room_name;
+    }
+    
+    /**
+     * show working name in html
+     */
     public function getWorkingNameHtml(){
-        return '<strong>' . $this->workingExamination->name . '</strong> tại phòng <strong>' . $this->workingRoom->room_name . '</strong>';
+        return '<strong>' . $this->workingExamination->name . '</strong> tại đơn vị <strong>' . $this->workingRoom->room_name . '</strong>';
+    }
+    
+    public function getMemberListHtml(){
+        $html = '';
+        foreach($this->workingMembers as $mem){
+            $html .= '<span class="label label-primary">'. $mem->memberUser->info->name .'</span>&nbsp;';
+        }
+        return $html;
     }
 }

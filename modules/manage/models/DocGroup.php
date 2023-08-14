@@ -110,4 +110,12 @@ class DocGroup extends \app\models\BmDocgroup
         ->select(['t.id', "CONCAT(t.name, ' (', is.name, ')') as longname"])->asArray()->all();
         return ArrayHelper::map($list, 'id', 'longname');
     }
+    
+    /**
+     * get list doc group by room (not iso)
+     */
+    public function getListByRoom(){
+        $list = $this::find()->where('id_iso IS NULL OR id_iso = 0')->asArray()->all();
+        return ArrayHelper::map($list, 'id', 'name');
+    }
 }

@@ -29,17 +29,7 @@ return [
             'class' => 'form-control'
         ])
     ],
-    [
-        'class'=>'\kartik\grid\DataColumn',
-        'attribute'=>'id_group',
-        'value'=>function($model){
-            return $model->group->name;
-        },
-        'filter'=>Html::activeDropDownList($searchModel, 'id_group', (new DocGroup())->getListLong(), [
-            'prompt' => '-Tất cả-',
-            'class' => 'form-control'
-        ])
-    ],
+   
     /* [
         'class'=>'\kartik\grid\DataColumn',
         'attribute'=>'code',
@@ -89,10 +79,31 @@ return [
         // 'class'=>'\kartik\grid\DataColumn',
         // 'attribute'=>'user_created',
     // ],
-    // [
-        // 'class'=>'\kartik\grid\DataColumn',
-        // 'attribute'=>'date_created',
-    // ],
+    
+    [
+        'class'=>'\kartik\grid\DataColumn',
+        'attribute'=>'doc_year',
+        'format'=>'raw',
+        'group' => true,  // enable grouping,
+        'groupedRow' => true,                    // move grouped column to a single grouped row
+        'groupOddCssClass' => 'kv-grouped-row',  // configure odd group cell css class
+        'groupEvenCssClass' => 'kv-grouped-row', // configure even group cell css class
+        'value'=>function($model){
+            return 'Năm ' . $model->doc_year;
+        }
+    ],
+    [
+        'class'=>'\kartik\grid\DataColumn',
+        'attribute'=>'id_room',
+        'value'=>'room.room_name',
+    ],
+    [
+        'class'=>'\kartik\grid\DataColumn',
+        'attribute'=>'id_group',
+        'value'=>function($model){
+            return $model->group!=null?$model->group->name:'';
+        },
+    ],
     [
         'header'=>'',
         'class' => 'kartik\grid\ActionColumn',

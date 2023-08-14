@@ -21,6 +21,9 @@ use Yii;
  * @property string|null $doc_summary
  * @property string|null $doc_date
  * @property string|null $doc_sign
+ * @property int|null $doc_year
+ * @property int|null $id_room
+ * @property int|null $id_dm
  *
  * @property BmDocgroup $group
  * @property BmDoctype $type
@@ -42,7 +45,7 @@ class BmDocs extends \yii\db\ActiveRecord
     {
         return [
             [['id_type', 'id_group'], 'required'],
-            [['id_type', 'id_group', 'user_created'], 'integer'],
+            [['id_type', 'id_group', 'user_created', 'doc_year', 'id_room', 'id_dm'], 'integer'],
             [['summary', 'doc_summary'], 'string'],
             [['date_created', 'doc_date'], 'safe'],
             [['code', 'doc_name', 'doc_url'], 'string', 'max' => 200],
@@ -74,6 +77,9 @@ class BmDocs extends \yii\db\ActiveRecord
             'doc_summary' => 'Doc Summary',
             'doc_date' => 'Doc Date',
             'doc_sign' => 'Doc Sign',
+            'doc_year' => 'Doc Year',
+            'id_room' => 'Id Room',
+            'id_dm' => 'Id Dm',
         ];
     }
 

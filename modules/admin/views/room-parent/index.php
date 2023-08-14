@@ -5,6 +5,7 @@ use yii\bootstrap\Modal;
 use kartik\grid\GridView;
 use johnitvn\ajaxcrud\CrudAsset; 
 use johnitvn\ajaxcrud\BulkButtonWidget;
+use app\components\BulkButtomCustom;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\modules\admin\models\RoomParentSearch */
@@ -39,7 +40,7 @@ CrudAsset::register($this);
                 'type' => '', 
                 'heading' => '<i class="glyphicon glyphicon-list"></i> Danh sách',
                 'before'=>'<em>* Có thể nhấn và kéo để thay đổi độ rộng của các cột dữ liệu.</em>',
-                'after'=>BulkButtonWidget::widget([
+                'after'=>BulkButtomCustom::widget([
                             'buttons'=>Html::a('<i class="glyphicon glyphicon-trash"></i>&nbsp; Xóa đã chọn',
                                 ["bulk-delete"] ,
                                 [

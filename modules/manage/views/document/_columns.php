@@ -18,10 +18,10 @@ return [
         'class'=>'\kartik\grid\DataColumn',
         'attribute'=>'id_working',
     ], */
-    /* [
+    [
         'class'=>'\kartik\grid\DataColumn',
         'attribute'=>'document_name',
-    ], */
+    ],
     [
         'class'=>'\kartik\grid\DataColumn',
         'attribute'=>'document_url',
@@ -57,11 +57,11 @@ return [
         'options' => array('style' => 'width:100px'),
     ],
     
-    [
+   /*  [
         'class'=>'\kartik\grid\DataColumn',
         'attribute'=>'summary',
         'options' => array('style' => 'width:200px'),
-    ],
+    ], */
     
     [
         'header'=>'',

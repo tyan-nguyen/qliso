@@ -24,7 +24,7 @@ return [
         'class'=>'\kartik\grid\DataColumn',
         'attribute'=>'id_iso',
         'value'=>function($model){
-            return $model->iso->name;
+        return $model->iso!=null ? $model->iso->name: '';
         },
         'filter'=>Html::activeDropDownList($searchModel, 'id_iso', (new Iso())->getList(), 
             ['prompt'=>'-Chọn ISO-', 'class'=>'form-control']

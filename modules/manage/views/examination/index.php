@@ -5,6 +5,7 @@ use yii\bootstrap\Modal;
 use kartik\grid\GridView;
 use johnitvn\ajaxcrud\CrudAsset; 
 use johnitvn\ajaxcrud\BulkButtonWidget;
+use app\components\BulkButtomCustom;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\modules\manage\models\ExaminationSearch */
@@ -41,7 +42,7 @@ CrudAsset::register($this);
                 'type' => 'primary', 
                 'heading' => '<i class="glyphicon glyphicon-list"></i> Danh sách kỳ kiểm tra',
                 //'before'=>'<em>* Resize table columns just like a spreadsheet by dragging the column edges.</em>',
-                'after'=>BulkButtonWidget::widget([
+                'after'=>BulkButtomCustom::widget([
                             'buttons'=>Html::a('<i class="glyphicon glyphicon-trash"></i>&nbsp; Xóa đã chọn',
                                 ["bulk-delete"] ,
                                 [

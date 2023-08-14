@@ -29,6 +29,7 @@ class AppAsset extends AssetBundle
     		'assets/js/datatable/datatables.min.css',
     		//'assets/AdminLTE-2.4.12/bower_components/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css',
        		'assets/css/custom.css',
+            'css/gridview-custom.css'
     ];
     public $js = [
     		['assets/AdminLTE-2.4.12/bower_components/jquery/dist/jquery.min.js', 'position' => \yii\web\View::POS_HEAD],

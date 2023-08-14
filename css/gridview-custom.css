@@ -1,0 +1,61 @@
+.kv-grouped-row {
+    background-color: #d9edf7 !important;
+    border-color: #bce8f1 !important;
+}
+.kv-grouped-row a{
+	color:#31708f !important;
+	text-transform: uppercase;
+}
+.kv-grouped-row a:hover{
+	font-weight: bold !important;
+}
+.p-title{
+	color: #008d4c !important;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin-top:0 !important;
+	padding-top:0  !important;
+}
+
+#pn-search .panel-title{
+	cursor: pointer;
+	margin-top:3px;
+}
+
+.crud-datatable:hover{
+	background-color: #ddd !important;
+}
+
+.r-second{
+	margin-top:10px;
+}
+
+#s-to-chuc, #s-to-ban-do, #s-thua{
+	font-weight: bold;
+}
+
+.s-bold{
+	font-weight: bold;
+}
+
+.label-b{
+	font-size: 90%;
+}
+
+.content-header {
+    padding: 0px 15px 0 15px !important;
+}
+
+.modal-header {
+    border-bottom-color: green;
+    color: green;
+    text-transform: uppercase;
+}
+
+.hide-ele{
+	display:none;
+}
+
+.form-control {
+    padding: 6px 10px !important;
+}

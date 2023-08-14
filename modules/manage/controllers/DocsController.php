@@ -40,14 +40,15 @@ class DocsController extends Controller
      * Lists all Docs models.
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndex($dm=NULL)
     {    
         $searchModel = new DocsSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams, $dm);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'dm'=>$dm
         ]);
     }
 
@@ -97,10 +98,11 @@ class DocsController extends Controller
      * and for non-ajax request if creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    public function actionCreate($dm=NULL)
     {
         $request = Yii::$app->request;
-        $model = new Docs();  
+        $model = new Docs();
+        $model->id_dm = $dm==NULL?NULL:$dm;
 
         if($request->isAjax){
             /*

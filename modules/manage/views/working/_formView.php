@@ -12,9 +12,10 @@ use yii\bootstrap\Modal;
 use kartik\grid\GridView;
 use johnitvn\ajaxcrud\CrudAsset;
 use johnitvn\ajaxcrud\BulkButtonWidget;
+use app\components\BulkButtomCustom;
 CrudAsset::register($this);
 
-$this->title="Cuộc họp #" . $model->id;
+$this->title=$model->workingName;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\manage\models\Working */
@@ -49,12 +50,12 @@ if($model->date_exam != null){
     <div class="box box-solid">
     <div class="box-header ui-sortable-handle" style="cursor: move;">
         <i class="fa fa-calendar"></i>
-        <h3 class="box-title">Biểu mẫu</h3>
+        <h3 class="box-title">Phần dành cho đoàn đánh giá</h3>
         
         <div class="pull-right box-tools">
         	
-        	<?= Html::a('<i class="glyphicon glyphicon-paperclip"></i> Thêm', ['working-files/create?idWorking='.$model->id],
-                        ['role'=>'modal-remote','title'=> 'Create working file','class'=>'btn btn-sm btn-primary'])
+        	<?php /* Html::a('<i class="glyphicon glyphicon-paperclip"></i> Thêm', ['working-files/create?idWorking='.$model->id],
+                        ['role'=>'modal-remote','title'=> 'Create working file','class'=>'btn btn-sm btn-primary']) */
                         ?>
             <?= Html::a('<span class="glyphicon glyphicon-refresh"></span> Tạo file biểu mẫu', ['file/create?idWorking=' . $model->id],
         						                				['role'=>'modal-remote','title'=> 'Tạo file biểu mẫu','class'=>'btn btn-sm btn-warning']); ?>
@@ -93,7 +94,7 @@ if($model->date_exam != null){
                     'type' => '', 
                     //'heading' => '<i class="glyphicon glyphicon-list"></i> working filess listing',
                     'before'=>'<em>* Danh sách biểu mẫu biên bản và phiếu ý kiến cho thành viên đoàn kiểm tra.</em>',
-                    'after'=>BulkButtonWidget::widget([
+                    'after'=>BulkButtomCustom::widget([
                                 'buttons'=>Html::a('<i class="glyphicon glyphicon-trash"></i>&nbsp; Xóa đã chọn',
                                     ["working-files/bulk-delete"] ,
                                     [
@@ -117,7 +118,7 @@ if($model->date_exam != null){
     <div class="box box-solid">
     <div class="box-header ui-sortable-handle" style="cursor: move;">
         <i class="fa fa-calendar"></i>
-        <h3 class="box-title">Tài liệu kiểm chứng</h3>
+        <h3 class="box-title">Phần dành cho đơn vị được đánh giá</h3>
         
         <div class="pull-right box-tools">
         	<?= Html::a('<i class="glyphicon glyphicon-paperclip"></i> Thêm', ['document/create?idWorking='.$model->id],
@@ -155,8 +156,8 @@ if($model->date_exam != null){
                 'panel' => [
                     'type' => '', 
                     'heading' => '<i class="glyphicon glyphicon-list"></i> working document',
-                    'before'=>'<em>* Danh sách tài liệu chứng minh phòng/ban tải lên.</em>',
-                    'after'=>BulkButtonWidget::widget([
+                    'before'=>'<em>Minh chứng theo yêu cầu nếu có</em>',
+                    'after'=>BulkButtomCustom::widget([
                                 'buttons'=>Html::a('<i class="glyphicon glyphicon-trash"></i>&nbsp; Xóa đã chọn',
                                     ["document/bulk-delete"] ,
                                     [
@@ -227,7 +228,7 @@ if($model->date_exam != null){
                     'type' => '', 
                     'heading' => '<i class="glyphicon glyphicon-list"></i> Team Members listing',
                     'before'=>'<em>* Danh sách thành viên đoàn kiểm tra.</em>',
-                    'after'=>BulkButtonWidget::widget([
+                    'after'=>BulkButtomCustom::widget([
                                 'buttons'=>Html::a('<i class="glyphicon glyphicon-trash"></i>&nbsp; Xóa đã chọn',
                                     ["team-member/bulk-delete"] ,
                                     [

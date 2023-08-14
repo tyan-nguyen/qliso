@@ -1,11 +1,11 @@
  <?php
  	use app\models\User;
-	use yii\helpers\Html;
-	use app\modules\admin\models\ContactStudent;
-use app\modules\admin\models\ContactTeacher;
-use app\modules\manage\models\Iso;
-use app\modules\manage\models\DocGroup;
-use app\modules\manage\models\Examination;
+    use app\modules\manage\models\DocGroup;
+    use app\modules\manage\models\Examination;
+    use app\modules\manage\models\Iso;
+    use yii\helpers\Html;
+use app\modules\manage\models\Dm;
+
  ?>
       <ul class="sidebar-menu" data-widget="tree">
       	<li>
@@ -13,19 +13,44 @@ use app\modules\manage\models\Examination;
             <i class="fa fa-home" aria-hidden="true"></i> <span>Trang chủ</span>
           </a>
         </li>
+        <?php $dm=Dm::findOne(1) ?>
+        <li><?= Html::a('<i class="fa fa-circle-o"></i> ' . $dm->name, Yii::getAlias('@web').'/manage/docs/index?dm='.$dm->id) ?></li>
         
-        <li class="header">LỊCH HỌP</li>
+        <li><?= Html::a('<i class="fa fa-circle-o"></i> Các ĐV trực thuộc HTQLCL', Yii::getAlias('@web').'/manage/docs/index') ?></li>
         
-       	<li><?= Html::a('<i class="fa fa-circle-o"></i> Kho dữ liệu', Yii::getAlias('@web').'/manage/docs/index') ?></li>
+        <?php 
+            $isoList = Iso::find()->all();
+            foreach ($isoList as $indexIso => $iso){
+          ?>
+       	
         
-         <?php if(User::hasRole('role_donvi')) { ?>
+        	<?php 
+	          	    $kyKiemTraTheoIso = Examination::find()->where([
+	          	        'id_iso' => $iso->id
+	          	    ])->all();
+	          	    foreach ($kyKiemTraTheoIso as $indexKkt => $kkt){
+	          	    ?>
+	          	    <li><?= Html::a('<i class="fa fa-circle-o"></i> Đánh giá nội bộ ĐKHN', Yii::getAlias('@web').'/manage/working/index-iso?idiso=' 
+	          	        . $iso->id . '&idEx='.$kkt->id) ?></li>
+	          	    <?php 
+	          	    }
+	          	
+	          	?>
+	          	
+	     <?php } ?>
+	          	
+         <!--<?php if(User::hasRole('role_donvi')) { ?>
          <li><?= Html::a('<i class="fa fa-circle-o"></i> Đơn vị', Yii::getAlias('@web').'/manage/phong-ban') ?></li>
          <?php } ?>
          <?php if(User::hasRole('role_doankiemtra')) { ?>
          <li><?= Html::a('<i class="fa fa-circle-o"></i> Đoàn đánh giá', Yii::getAlias('@web').'/manage/doan-danh-gia') ?></li>
-         <?php } ?>       
+         <?php } ?>    -->
          
-         
+         <?php $dm=Dm::findOne(2) ?>
+        <li><?= Html::a('<i class="fa fa-circle-o"></i> ' . $dm->name, Yii::getAlias('@web').'/manage/docs/index?dm='.$dm->id) ?></li>   
+         <?php $dm=Dm::findOne(3) ?>
+        <li><?= Html::a('<i class="fa fa-circle-o"></i> ' . $dm->name, Yii::getAlias('@web').'/manage/docs/index?dm='.$dm->id) ?></li>
+         <!-- 
          <li class="header">ISO</li>
           <?php 
             $isoList = Iso::find()->all();
@@ -40,7 +65,7 @@ use app\modules\manage\models\Examination;
 	            </span>
 	          </a>
 	          <ul class="treeview-menu">
-	          	<!-- <li><?= Html::a('<i class="fa fa-circle-o"></i> Kiểm tra nội bộ', Yii::getAlias('@web').'/manage/working/index-iso?idiso=' . $iso->id) ?></li>-->
+	          	
 	          	<?php 
 	          	    $kyKiemTraTheoIso = Examination::find()->where([
 	          	        'id_iso' => $iso->id
@@ -61,18 +86,14 @@ use app\modules\manage\models\Examination;
 	          	<li><?= Html::a('<i class="fa fa-circle-o"></i> ' . $ldg->name, Yii::getAlias('@web').'/manage/docs-iso/index?idiso=' . $iso->id) ?></li>
 	          	
 	          	<?php } ?>
-	          	
-	          	<!-- 
-	          	<li><?= Html::a('<i class="fa fa-circle-o"></i> Kiểm tra 1', Yii::getAlias('@web').'/manage/doc-manage/index-iso?idiso=' . $iso->id) ?></li>	 
-	          	<li><?= Html::a('<i class="fa fa-circle-o"></i> Kiểm tra 1', Yii::getAlias('@web').'/manage/doc-manage/index-iso?idiso=' . $iso->id) ?></li>
-	          	 -->         		
+	          	       		
 	          </ul>
 	        </li>
           
           <?php  
             }            
           ?> 	
-
+			 -->
         <?php if(User::hasRole('role_admin')) { ?>
        	<li class="header">CHỨC NĂNG</li>
         	

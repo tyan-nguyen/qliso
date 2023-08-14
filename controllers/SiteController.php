@@ -73,7 +73,8 @@ class SiteController extends Controller
     	return $this->render('index', [
     	    'examinations' => $examinations
     	]); */
-        $this->redirect(Yii::getAlias('@web/admin/thong-ke-truy-cap'));
+        //$this->redirect(Yii::getAlias('@web/admin/thong-ke-truy-cap'));
+        return $this->render('index2', []);
     }
     
     /**

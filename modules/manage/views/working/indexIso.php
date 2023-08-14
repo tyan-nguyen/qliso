@@ -6,6 +6,7 @@ use kartik\grid\GridView;
 use johnitvn\ajaxcrud\CrudAsset; 
 use johnitvn\ajaxcrud\BulkButtonWidget;
 use yii\web\View;
+use app\components\BulkButtomCustom;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\modules\manage\models\WorkingSearch */
@@ -55,7 +56,7 @@ $curlink = $idEx!=null? ('?idEx=' . $idEx) :'' ;
                 'type' => '', 
                 'heading' => '<i class="glyphicon glyphicon-list"></i> Danh sách cuộc họp',
                 'before'=>'<em>* Danh sách cuộc họp thuộc '. $iso->name .'</em>',
-                'after'=>BulkButtonWidget::widget([
+                'after'=>BulkButtomCustom::widget([
                             'buttons'=>Html::a('<i class="glyphicon glyphicon-trash"></i>&nbsp; Xóa đã chọn',
                                 ["bulk-delete"] ,
                                 [

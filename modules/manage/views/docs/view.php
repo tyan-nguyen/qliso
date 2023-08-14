@@ -17,7 +17,19 @@ use yii\widgets\DetailView;
             ],
             'id_group'=>[
                 'attribute'=>'id_group',
-                'value'=>$model->group->name
+                'value'=>$model->group!=NULL?$model->group->name:''
+            ],
+            'idRoomParent'=>[
+                'attribute'=>'idRoomParent',
+                'value'=>$model->room!=null?$model->room->roomParent->room_name:''
+            ],
+            'id_room'=>[
+                'attribute'=>'id_room',
+                'value'=>$model->room!=null?$model->room->room_name:''
+            ],
+            'id_dm'=>[
+                'attribute'=>'id_dm',
+                'value'=>$model->dm!=null?$model->dm->name:''
             ],
             'code',
             'doc_name',
