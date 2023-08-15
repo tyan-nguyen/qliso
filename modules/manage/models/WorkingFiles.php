@@ -131,9 +131,9 @@ class WorkingFiles extends \app\models\BmWorkingFiles
      */
     public function getTypeList(){
         return [
-            'TYPE_BB' => 'Mẫu biên bản',
-            'TYPE_CN' => 'Mẫu cá nhân',
-            'TYPE_OTHER' => 'Mẫu hoàn thành'
+            'TYPE_BB' => 'Biên bản đánh giá nội bộ',
+            'TYPE_CN' => 'Biểu kiểm tra (checklist)',
+            'TYPE_OTHER' => 'Biên bản hoàn thành'
         ];
     }
     /**
@@ -141,11 +141,11 @@ class WorkingFiles extends \app\models\BmWorkingFiles
      */
     public function getTypeName(){
         if($this->file_type == $this::TYPE_BB)
-            return 'Mẫu biên bản';
+            return 'Biên bản đánh giá nội bộ';
         else if($this->file_type == $this::TYPE_CN)
-            return 'Mẫu cá nhân';
+            return 'Biểu kiểm tra (checklist)';
         else if($this->file_type == $this::TYPE_OTHER)
-            return 'Mẫu hoàn thành';
+            return 'Biên bản hoàn thành';
         else 
             return null;
     }

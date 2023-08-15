@@ -107,7 +107,7 @@ return [
                 ]);
             },
             'viewDrive' => function ($url, $model, $key) {
-            return yii\helpers\Html::a('<span class="glyphicon glyphicon-folder-open"></span>',
+            return yii\helpers\Html::a('<span class="glyphicon glyphicon-folder-open"></span> Xem trên Google Drive',
                 Yii::getAlias('@web') . '/manage/file/view-drive?id='
                 . $model->id
                 , [
@@ -120,7 +120,7 @@ return [
                 ]);
             },
             'download' => function ($url, $model, $key) {
-                return yii\helpers\Html::a('<span class="glyphicon glyphicon-cloud-download"></span>',
+                return yii\helpers\Html::a('<span class="glyphicon glyphicon-cloud-download"></span> Tải file',
                     Yii::getAlias('@web') . '/manage/file/download?id='
                     . $model->id
                     , [
@@ -174,7 +174,7 @@ return [
                 return ($model->file_url != null);
             },
         ],
-        'options' => array('style' => 'width:200px'),
+        'options' => array('style' => 'width:400px'),
         'viewOptions'=>['role'=>'modal-remote','title'=>'View','data-toggle'=>'tooltip'],
         'updateOptions'=>['role'=>'modal-remote','title'=>'Update', 'data-toggle'=>'tooltip'],
         'deleteOptions'=>['role'=>'modal-remote','title'=>'Delete', 

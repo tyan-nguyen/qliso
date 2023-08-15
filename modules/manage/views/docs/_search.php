@@ -27,7 +27,7 @@ use kartik\date\DatePicker;
 
     <div class="row r-first">
     
-    <div class="col-md-3">
+    <div class="col-md-2">
     		<?php 
     			/* if($searchModel->id_room != null){
     				$room = Room::findOne($searchModel->id_room);
@@ -76,7 +76,7 @@ use kartik\date\DatePicker;
     
     	
     	
-    	<div class="col-md-3">
+    	<div class="col-md-2">
   		 	<?= $form->field($searchModel, 'id_group')->widget(Select2::classname(), [
   		 	    'data' => (new DocGroup())->getListByRoom(),
                     'options' => ['placeholder' => 'Chọn nhóm ...'],
@@ -87,7 +87,18 @@ use kartik\date\DatePicker;
                 ]); ?>
     	</div>
     	
-    	<div class="col-md-3">
+    	<div class="col-md-2">
+  		<?= $form->field($searchModel, 'doc_year')->widget(Select2::classname(), [
+  		        'data' => $searchModel->getAvailableYear(),
+                'options' => ['placeholder' => 'Chọn năm...'],
+                'attribute' => 'doc_year',
+                'pluginOptions' => [
+                    'allowClear' => true
+                ]
+            ]); ?>
+  		</div>
+    	
+    	<div class="col-md-2">
     	<label>&nbsp;</label>
     	<br/>
     	<button type="button" onclick="openMoreSearch()" class="btn btn-primary btn-xs">Thêm thông tin <span class="caret"></span></button>

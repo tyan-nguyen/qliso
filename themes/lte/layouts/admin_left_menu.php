@@ -18,38 +18,24 @@ use app\modules\manage\models\Dm;
         
         <li><?= Html::a('<i class="fa fa-circle-o"></i> Các ĐV trực thuộc HTQLCL', Yii::getAlias('@web').'/manage/docs/index') ?></li>
         
-        <?php 
-            $isoList = Iso::find()->all();
-            foreach ($isoList as $indexIso => $iso){
-          ?>
-       	
+        <?php $dm=Dm::findOne(2) ?>
+        <li><?= Html::a('<i class="fa fa-circle-o"></i> ' . $dm->name, Yii::getAlias('@web').'/manage/docs/index?dm='.$dm->id) ?></li>
         
-        	<?php 
-	          	    $kyKiemTraTheoIso = Examination::find()->where([
-	          	        'id_iso' => $iso->id
-	          	    ])->all();
-	          	    foreach ($kyKiemTraTheoIso as $indexKkt => $kkt){
-	          	    ?>
-	          	    <li><?= Html::a('<i class="fa fa-circle-o"></i> Đánh giá nội bộ ĐKHN', Yii::getAlias('@web').'/manage/working/index-iso?idiso=' 
-	          	        . $iso->id . '&idEx='.$kkt->id) ?></li>
-	          	    <?php 
-	          	    }
 	          	
-	          	?>
-	          	
-	     <?php } ?>
-	          	
-         <!--<?php if(User::hasRole('role_donvi')) { ?>
-         <li><?= Html::a('<i class="fa fa-circle-o"></i> Đơn vị', Yii::getAlias('@web').'/manage/phong-ban') ?></li>
+        
+         
+         <?php $dm=Dm::findOne(3) ?>
+        <li><?= Html::a('<i class="fa fa-circle-o"></i> ' . $dm->name, Yii::getAlias('@web').'/manage/docs/index?dm='.$dm->id) ?></li>   
+         <?php $dm=Dm::findOne(4) ?>
+        <li><?= Html::a('<i class="fa fa-circle-o"></i> ' . $dm->name, Yii::getAlias('@web').'/manage/docs/index?dm='.$dm->id) ?></li>
+        
+         <?php if(User::hasRole('role_donvi')) { ?>
+         <li><?= Html::a('<i class="fa fa-circle-o"></i> Dành cho Đơn vị', Yii::getAlias('@web').'/manage/phong-ban') ?></li>
          <?php } ?>
          <?php if(User::hasRole('role_doankiemtra')) { ?>
-         <li><?= Html::a('<i class="fa fa-circle-o"></i> Đoàn đánh giá', Yii::getAlias('@web').'/manage/doan-danh-gia') ?></li>
-         <?php } ?>    -->
-         
-         <?php $dm=Dm::findOne(2) ?>
-        <li><?= Html::a('<i class="fa fa-circle-o"></i> ' . $dm->name, Yii::getAlias('@web').'/manage/docs/index?dm='.$dm->id) ?></li>   
-         <?php $dm=Dm::findOne(3) ?>
-        <li><?= Html::a('<i class="fa fa-circle-o"></i> ' . $dm->name, Yii::getAlias('@web').'/manage/docs/index?dm='.$dm->id) ?></li>
+         <li><?= Html::a('<i class="fa fa-circle-o"></i> Dành cho Đoàn đánh giá', Yii::getAlias('@web').'/manage/doan-danh-gia') ?></li>
+         <?php } ?>
+        
          <!-- 
          <li class="header">ISO</li>
           <?php 
@@ -104,14 +90,36 @@ use app\modules\manage\models\Dm;
          
           <li class="treeview">
 	          <a href="#">
-	            <i class="fa fa-dashboard"></i> <span>BIỂU MẪU</span>
+	            <i class="fa fa-dashboard"></i> <span>ĐÁNH GIÁ NỘI BỘ</span>
 	            <span class="pull-right-container">
 	              <i class="fa fa-angle-left pull-right"></i>
 	            </span>
 	          </a>
 	          <ul class="treeview-menu">
+	          
+	          	<?php 
+                    $isoList = Iso::find()->all();
+                    foreach ($isoList as $indexIso => $iso){
+                  ?>
+               	
+                
+                	<?php 
+        	          	    $kyKiemTraTheoIso = Examination::find()->where([
+        	          	        'id_iso' => $iso->id
+        	          	    ])->all();
+        	          	    foreach ($kyKiemTraTheoIso as $indexKkt => $kkt){
+        	          	    ?>
+        	          	    <li><?= Html::a('<i class="fa fa-circle-o"></i> Đánh giá nội bộ ĐKHN', Yii::getAlias('@web').'/manage/working/index-iso?idiso=' 
+        	          	        . $iso->id . '&idEx='.$kkt->id) ?></li>
+        	          	    <?php 
+        	          	    }
+        	          	
+        	          	?>
+        	          	
+        	     <?php } ?>
+	     
 	          	<li><?= Html::a('<i class="fa fa-circle-o"></i> Danh sách mẫu', Yii::getAlias('@web').'/manage/template/index') ?></li>
-	          	<li><?= Html::a('<i class="fa fa-circle-o"></i> Kỳ kiểm tra', Yii::getAlias('@web').'/manage/examination/index') ?></li>	          	
+	          	<li><?= Html::a('<i class="fa fa-circle-o"></i> Kỳ đánh giá', Yii::getAlias('@web').'/manage/examination/index') ?></li>	          	
 	          	<!-- <li><?= Html::a('<i class="fa fa-circle-o"></i> Lịch họp', Yii::getAlias('@web').'/manage/working/index') ?></li> -->
 	          	
 	          </ul>

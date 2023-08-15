@@ -189,7 +189,7 @@ if($model->date_exam != null){
 <div class="box box-solid">
     <div class="box-header ui-sortable-handle" style="cursor: move;">
         <i class="fa fa-calendar"></i>
-        <h3 class="box-title">Đoàn kiểm tra</h3>
+        <h3 class="box-title">Đoàn đánh giá</h3>
         
         <div class="pull-right box-tools">
         	<?= Html::a('<i class="glyphicon glyphicon-user"></i> Thêm', ['team-member/create?idWorking='.$model->id],
@@ -226,8 +226,8 @@ if($model->date_exam != null){
                 'responsive' => true,          
                 'panel' => [
                     'type' => '', 
-                    'heading' => '<i class="glyphicon glyphicon-list"></i> Team Members listing',
-                    'before'=>'<em>* Danh sách thành viên đoàn kiểm tra.</em>',
+                    'heading' => '<i class="glyphicon glyphicon-list"></i> Đoàn đánh giá',
+                    'before'=>'<em>* Danh sách thành viên đoàn đánh giá.</em>',
                     'after'=>BulkButtomCustom::widget([
                                 'buttons'=>Html::a('<i class="glyphicon glyphicon-trash"></i>&nbsp; Xóa đã chọn',
                                     ["team-member/bulk-delete"] ,

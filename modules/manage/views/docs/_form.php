@@ -22,7 +22,7 @@ use app\modules\manage\models\Dm;
     ]); ?>    
     
     <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-<?= $model->dm==null?'6':'12' ?>">
     <?= $form->field($model, 'id_type')->widget(Select2::classname(), [
           		'data' => (new DocType())->getList(),
                 'options' => ['placeholder' => 'Chọn loại tài liệu ...'],
@@ -32,7 +32,8 @@ use app\modules\manage\models\Dm;
                 ]
             ]); ?>
     </div>
-     <div class="col-md-6">
+    <?php if ($model->dm == null):?>
+    <div class="col-md-6">
     <?= $form->field($model, 'id_group')->widget(Select2::classname(), [
           		'data' => (new DocGroup())->getListByRoom(),
                 'options' => ['placeholder' => 'Chọn nhóm tài liệu ...'],
@@ -42,6 +43,8 @@ use app\modules\manage\models\Dm;
                 ]
             ]); ?>
     </div>
+    <?php endif; ?>
+    
 	</div>
 	<div class="row">
     <div class="col-md-6">
@@ -59,6 +62,7 @@ use app\modules\manage\models\Dm;
       </div>
 	</div>
 	
+	<?php if ($model->dm == null):?>
 	<div class="row">
     <div class="col-md-6">
      <?php 
@@ -110,6 +114,7 @@ use app\modules\manage\models\Dm;
             ]); ?>
      </div>
 	</div>
+	<?php endif; ?>
 	
 	<div class="row">
     <div class="col-md-6">

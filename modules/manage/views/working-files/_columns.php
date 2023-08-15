@@ -27,7 +27,7 @@ return [
         },
         'options' => array('style' => 'width:100px'),
     ],
-   /*  [
+   /* [
         'class'=>'\kartik\grid\DataColumn',
         'attribute'=>'file_name',
     ], */
@@ -37,7 +37,7 @@ return [
         'value'=>function($model){
             return $model->getTypeName($model->file_type);
         },
-        'options' => array('style' => 'width:120px'),
+        'options' => array('style' => 'width:150px'),
     ],
     /* [
         'class'=>'\kartik\grid\DataColumn',
@@ -66,11 +66,11 @@ return [
         'class'=>'\kartik\grid\DataColumn',
         'attribute'=>'shared_with',
     ], */
-    [
+    /* [
         'class'=>'\kartik\grid\DataColumn',
         'attribute'=>'summary',
         'options' => array('style' => 'width:200px'),
-    ],
+    ], */
     // [
         // 'class'=>'\kartik\grid\DataColumn',
         // 'attribute'=>'date_created',
@@ -93,7 +93,7 @@ return [
         'template'=>'{uploadDrive} {viewDrive} {download} {view} {update}',
         'buttons' => [
             'uploadDrive' => function ($url, $model, $key) {
-            return yii\helpers\Html::a('<span class="glyphicon glyphicon-upload"></span>',
+            return yii\helpers\Html::a('<span class="glyphicon glyphicon-upload"></span> Tải lên Google Drive',
                 Yii::getAlias('@web') . '/manage/file/upload-drive?id='
                 . $model->id
                 , [
@@ -106,7 +106,7 @@ return [
                 ]);
             },
             'viewDrive' => function ($url, $model, $key) {
-            return yii\helpers\Html::a('<span class="glyphicon glyphicon-folder-open"></span>',
+            return yii\helpers\Html::a('<span class="glyphicon glyphicon-folder-open"></span> Xem trên Google Drive',
                 Yii::getAlias('@web') . '/manage/file/view-drive?id='
                 . $model->id
                 , [
@@ -119,7 +119,7 @@ return [
                 ]);
             },
             'download' => function ($url, $model, $key) {
-                return yii\helpers\Html::a('<span class="glyphicon glyphicon-cloud-download"></span>',
+                return yii\helpers\Html::a('<span class="glyphicon glyphicon-cloud-download"></span> Tải file',
                     Yii::getAlias('@web') . '/manage/file/download?id='
                     . $model->id
                     , [
@@ -132,7 +132,7 @@ return [
                     ]);
             },
             'view' => function ($url, $model, $key) {
-                return yii\helpers\Html::a('<span class="glyphicon glyphicon-eye-open"></span>',
+                return yii\helpers\Html::a('<span class="glyphicon glyphicon-eye-open"></span> Xem chi tiết',
                     Yii::getAlias('@web') . '/manage/working-files/view?id='
                     . $model->id
                     , [
@@ -143,7 +143,7 @@ return [
                     ]);
             },
             'update' => function ($url, $model, $key) {
-            return yii\helpers\Html::a('<span class="glyphicon glyphicon-pencil"></span>',
+            return yii\helpers\Html::a('<span class="glyphicon glyphicon-pencil"></span> Cập nhật',
                 Yii::getAlias('@web') . '/manage/working-files/update?id='
                 . $model->id
                 , [
@@ -154,7 +154,7 @@ return [
                 ]);
             },
             'delete' => function ($url, $model, $key) {
-            return yii\helpers\Html::a('<span class="glyphicon glyphicon-remove"></span>',
+            return yii\helpers\Html::a('<span class="glyphicon glyphicon-remove"></span> Xóa file',
                 Yii::getAlias('@web') . '/manage/working-files/delete?id='
                 . $model->id
                 , [
@@ -173,7 +173,7 @@ return [
                 return ($model->file_url != null);
             },
         ],
-        'options' => array('style' => 'width:120px'),
+        'options' => array('style' => 'width:400px'),
         'viewOptions'=>['role'=>'modal-remote','title'=>'View','data-toggle'=>'tooltip'],
         'updateOptions'=>['role'=>'modal-remote','title'=>'Update', 'data-toggle'=>'tooltip'],
         'deleteOptions'=>['role'=>'modal-remote','title'=>'Delete', 

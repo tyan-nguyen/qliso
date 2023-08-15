@@ -10,7 +10,7 @@ use johnitvn\ajaxcrud\BulkButtonWidget;
 /* @var $searchModel app\modules\manage\models\WorkingSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Danh sách cuộc họp (đoàn kiểm tra)';
+$this->title = 'Danh sách cuộc họp (đoàn đánh giá)';
 $this->params['breadcrumbs'][] = $this->title;
 
 CrudAsset::register($this);
@@ -21,7 +21,7 @@ CrudAsset::register($this);
         <?=GridView::widget([
             'id'=>'crud-datatable',
             'dataProvider' => $dataProvider,
-            'filterModel' => $searchModel,
+            //'filterModel' => $searchModel,
             'pjax'=>true,
             'columns' => require(__DIR__.'/_columns.php'),
             'toolbar'=> [

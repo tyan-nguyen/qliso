@@ -94,7 +94,7 @@ return [
         //'template'=>'{viewDrive} {download}',
         'buttons' => [
             'uploadDrive' => function ($url, $model, $key) {
-            return yii\helpers\Html::a('<span class="glyphicon glyphicon-upload"></span>',
+            return yii\helpers\Html::a('<span class="glyphicon glyphicon-upload"></span> Tải lên Google Drive',
                 Yii::getAlias('@web') . '/manage/file/upload-drive?id='
                 . $model->id
                 , [
@@ -107,7 +107,7 @@ return [
                 ]);
             },
             'viewDrive' => function ($url, $model, $key) {
-            return yii\helpers\Html::a('<span class="glyphicon glyphicon-folder-open"></span>',
+            return yii\helpers\Html::a('<span class="glyphicon glyphicon-folder-open"></span> Xem trên Google Drive',
                 Yii::getAlias('@web') . '/manage/file/view-drive?id='
                 . $model->id
                 , [
@@ -120,7 +120,7 @@ return [
                 ]);
             },
             'download' => function ($url, $model, $key) {
-                return yii\helpers\Html::a('<span class="glyphicon glyphicon-cloud-download"></span>',
+                return yii\helpers\Html::a('<span class="glyphicon glyphicon-cloud-download"></span> Tải file',
                     Yii::getAlias('@web') . '/manage/file/download?id='
                     . $model->id
                     , [
@@ -133,7 +133,7 @@ return [
                     ]);
             },
             'view' => function ($url, $model, $key) {
-                return yii\helpers\Html::a('<span class="glyphicon glyphicon-eye-open"></span>',
+                return yii\helpers\Html::a('<span class="glyphicon glyphicon-eye-open"></span> Xem chi tiết',
                     Yii::getAlias('@web') . '/manage/working-files/view?id='
                     . $model->id
                     , [
@@ -144,7 +144,7 @@ return [
                     ]);
             },
             'update' => function ($url, $model, $key) {
-            return yii\helpers\Html::a('<span class="glyphicon glyphicon-pencil"></span>',
+            return yii\helpers\Html::a('<span class="glyphicon glyphicon-pencil"></span> Cập nhật',
                 Yii::getAlias('@web') . '/manage/working-files/update?id='
                 . $model->id
                 , [
@@ -155,7 +155,7 @@ return [
                 ]);
             },
             'delete' => function ($url, $model, $key) {
-            return yii\helpers\Html::a('<span class="glyphicon glyphicon-remove"></span>',
+            return yii\helpers\Html::a('<span class="glyphicon glyphicon-remove"></span> Xóa',
                 Yii::getAlias('@web') . '/manage/working-files/delete?id='
                 . $model->id
                 , [
@@ -174,7 +174,7 @@ return [
                 return ($model->file_url != null);
             },
         ],
-        'options' => array('style' => 'width:120px'),
+        'options' => array('style' => 'width:400px'),
         'viewOptions'=>['role'=>'modal-remote','title'=>'View','data-toggle'=>'tooltip'],
         'updateOptions'=>['role'=>'modal-remote','title'=>'Update', 'data-toggle'=>'tooltip'],
         'deleteOptions'=>['role'=>'modal-remote','title'=>'Delete', 

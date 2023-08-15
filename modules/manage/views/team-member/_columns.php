@@ -56,7 +56,7 @@ return [
         'template'=>'{view} {update}',
         'buttons' => [
             'view' => function ($url, $model, $key) {
-                return yii\helpers\Html::a('<span class="glyphicon glyphicon-eye-open"></span>',
+                return yii\helpers\Html::a('<span class="glyphicon glyphicon-eye-open"></span> Xem',
                     Yii::getAlias('@web') . '/manage/team-member/view?id='
                     . $model->id
                     , [
@@ -67,7 +67,7 @@ return [
                     ]);
             },
             'update' => function ($url, $model, $key) {
-                return yii\helpers\Html::a('<span class="glyphicon glyphicon-pencil"></span>',
+                return yii\helpers\Html::a('<span class="glyphicon glyphicon-pencil"></span> Cập nhật',
                     Yii::getAlias('@web') . '/manage/team-member/update?id='
                     . $model->id
                     , [
@@ -78,7 +78,7 @@ return [
                     ]);
             },
             'delete' => function ($url, $model, $key) {
-                return yii\helpers\Html::a('<span class="glyphicon glyphicon-remove"></span>',
+                return yii\helpers\Html::a('<span class="glyphicon glyphicon-remove"></span> Xóa',
                     Yii::getAlias('@web') . '/manage/team-member/delete?id='
                     . $model->id
                     , [

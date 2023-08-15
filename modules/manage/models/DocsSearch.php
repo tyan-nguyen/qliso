@@ -7,6 +7,7 @@ use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use app\modules\manage\models\Docs;
 use app\models\Custom;
+use app\models\User;
 
 /**
  * DocsSearch represents the model behind the search form about `app\modules\manage\models\Docs`.
@@ -103,7 +104,19 @@ class DocsSearch extends Docs
         } else {
             $query->andWhere('id_dm IS NULL');
         }
-            
+        
+        if($dm==null && !User::hasRole('role_admin')){
+            if(User::getUserRoom() != NULL){
+                $query->andFilterWhere([
+                    'id_room' => User::getUserRoom(),
+                ]);
+            } else {
+                $query->andFilterWhere([
+                    'id_room' => '00',
+                ]);
+            }
+        }
+        
         return $dataProvider;
     }
     

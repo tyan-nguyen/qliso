@@ -11,7 +11,7 @@ use app\components\BulkButtomCustom;
 /* @var $searchModel app\modules\manage\models\ExaminationSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Kỳ kiểm tra';
+$this->title = 'Kỳ đánh giá';
 $this->params['breadcrumbs'][] = $this->title;
 
 CrudAsset::register($this);
@@ -28,7 +28,7 @@ CrudAsset::register($this);
             'toolbar'=> [
                 ['content'=>
                     Html::a('<i class="glyphicon glyphicon-plus"></i>', ['create'],
-                    ['role'=>'modal-remote','title'=> 'Thêm mới kỳ kiểm tra','class'=>'btn btn-default']).
+                    ['role'=>'modal-remote','title'=> 'Thêm mới kỳ đánh giá','class'=>'btn btn-default']).
                     Html::a('<i class="glyphicon glyphicon-repeat"></i>', [''],
                     ['data-pjax'=>1, 'class'=>'btn btn-default', 'title'=>'Reset Grid']).
                     '{toggleData}'.
@@ -40,7 +40,7 @@ CrudAsset::register($this);
             'responsive' => true,          
             'panel' => [
                 'type' => 'primary', 
-                'heading' => '<i class="glyphicon glyphicon-list"></i> Danh sách kỳ kiểm tra',
+                'heading' => '<i class="glyphicon glyphicon-list"></i> Danh sách kỳ đánh giá',
                 //'before'=>'<em>* Resize table columns just like a spreadsheet by dragging the column edges.</em>',
                 'after'=>BulkButtomCustom::widget([
                             'buttons'=>Html::a('<i class="glyphicon glyphicon-trash"></i>&nbsp; Xóa đã chọn',

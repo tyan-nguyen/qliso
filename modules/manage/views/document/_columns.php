@@ -74,7 +74,7 @@ return [
         'template'=>'{download} {view} {update}',
         'buttons' => [
             'download' => function ($url, $model, $key) {
-            return yii\helpers\Html::a('<span class="glyphicon glyphicon-cloud-download"></span>',
+            return yii\helpers\Html::a('<span class="glyphicon glyphicon-cloud-download"></span> Tải về',
                 Yii::getAlias('@web') . '/manage/document/download?id='
                 . $model->id
                 , [
@@ -87,7 +87,7 @@ return [
                 ]);
             },
             'view' => function ($url, $model, $key) {
-            return yii\helpers\Html::a('<span class="glyphicon glyphicon-eye-open"></span>',
+            return yii\helpers\Html::a('<span class="glyphicon glyphicon-eye-open"></span> Xem chi tiết',
                 Yii::getAlias('@web') . '/manage/document/view?id='
                 . $model->id
                 , [
@@ -98,7 +98,7 @@ return [
                 ]);
             },
             'update' => function ($url, $model, $key) {
-            return yii\helpers\Html::a('<span class="glyphicon glyphicon-pencil"></span>',
+            return yii\helpers\Html::a('<span class="glyphicon glyphicon-pencil"></span> Cập nhật',
                 Yii::getAlias('@web') . '/manage/document/update?id='
                 . $model->id
                 , [
@@ -109,7 +109,7 @@ return [
                 ]);
             },
             'delete' => function ($url, $model, $key) {
-            return yii\helpers\Html::a('<span class="glyphicon glyphicon-remove"></span>',
+            return yii\helpers\Html::a('<span class="glyphicon glyphicon-remove"></span> Xóa',
                 Yii::getAlias('@web') . '/manage/document/delete?id='
                 . $model->id
                 , [
@@ -128,7 +128,7 @@ return [
                 return ($model->file_url != null);
                 },
         ],
-        'options' => array('style' => 'width:120px'),
+        'options' => array('style' => 'width:300px'),
         'viewOptions'=>['role'=>'modal-remote','title'=>'View','data-toggle'=>'tooltip'],
         'updateOptions'=>['role'=>'modal-remote','title'=>'Update', 'data-toggle'=>'tooltip'],
         'deleteOptions'=>['role'=>'modal-remote','title'=>'Delete', 

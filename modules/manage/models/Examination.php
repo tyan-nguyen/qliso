@@ -42,7 +42,7 @@ class Examination extends \app\models\BmExamination
     {
         return [
             'id' => 'ID',
-            'name' => 'Tên kỳ kiểm tra',
+            'name' => 'Tên kỳ đánh giá',
             'summary' => 'Ghi chú',
             'date_created' => 'Ngày tạo',
             'user_created' => 'Người tạo',

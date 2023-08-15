@@ -11,6 +11,8 @@ use yii\filters\VerbFilter;
 use \yii\web\Response;
 use yii\helpers\Html;
 use yii\web\UploadedFile;
+use app\modules\manage\models\Dm;
+use app\models\User;
 
 /**
  * DocsController implements the CRUD actions for Docs model.
@@ -44,6 +46,15 @@ class DocsController extends Controller
     {    
         $searchModel = new DocsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams, $dm);
+        
+        if($dm!=null){
+            $dmModel = Dm::findOne($dm);
+            if($dmModel != null){
+                Yii::$app->view->title = $dmModel->name;
+            }
+        } else {
+            Yii::$app->view->title = 'Các đơn vị trực thuộc Hệ thống Quản lý chất lượng';
+        }
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -60,19 +71,26 @@ class DocsController extends Controller
     public function actionView($id)
     {   
         $request = Yii::$app->request;
+        $model = $this->findModel($id);
         if($request->isAjax){
             Yii::$app->response->format = Response::FORMAT_JSON;
+            
+            $addText = '';
+            if($model->dm != null){
+                $addText = ' thuộc ' . $model->dm->name;
+            }
+            
             return [
-                    'title'=> "Tài liệu",
+                    'title'=> "Tài liệu" . $addText,
                     'content'=>$this->renderAjax('view', [
-                        'model' => $this->findModel($id),
+                        'model' => $model,
                     ]),
                     'footer'=> Html::button('Close',['class'=>'btn btn-default pull-left','data-dismiss'=>"modal"]).
                             Html::a('Edit',['update','id'=>$id],['class'=>'btn btn-primary','role'=>'modal-remote'])
                 ];    
         }else{
             return $this->render('view', [
-                'model' => $this->findModel($id),
+                'model' => $model,
             ]);
         }
     }
@@ -102,7 +120,12 @@ class DocsController extends Controller
     {
         $request = Yii::$app->request;
         $model = new Docs();
-        $model->id_dm = $dm==NULL?NULL:$dm;
+        $model->id_dm = $dm;
+        $addText = '';
+        $dmModel = Dm::findOne($dm);
+        if($dmModel != null){
+            $addText = ' thuộc ' . $dmModel->name;
+        }
 
         if($request->isAjax){
             /*
@@ -111,7 +134,7 @@ class DocsController extends Controller
             Yii::$app->response->format = Response::FORMAT_JSON;
             if($request->isGet){
                 return [
-                    'title'=> "Thêm mới tài liệu",
+                    'title'=> "Thêm mới tài liệu" . $addText,
                     'content'=>$this->renderAjax('create', [
                         'model' => $model,
                     ]),
@@ -134,7 +157,7 @@ class DocsController extends Controller
                     }
                     return [
                         'forceReload'=>'#crud-datatable-pjax',
-                        'title'=> "Thêm mới tài liệu",
+                        'title'=> "Thêm mới tài liệu" . $addText,
                         'content'=>'<span class="text-success">Thêm mới tài liệu thành công!</span>',
                         'footer'=> Html::button('Close',['class'=>'btn btn-default pull-left','data-dismiss'=>"modal"]).
                                 Html::a('Create More',['create'],['class'=>'btn btn-primary','role'=>'modal-remote'])
@@ -142,7 +165,7 @@ class DocsController extends Controller
                     ];    
                 } else {
                     return [
-                        'title'=> "Thêm mới tài liệu",
+                        'title'=> "Thêm mới tài liệu" . $addText,
                         'content'=>$this->renderAjax('create', [
                             'model' => $model,
                         ]),
@@ -153,7 +176,7 @@ class DocsController extends Controller
                 }
             }else{           
                 return [
-                    'title'=> "Thêm mới tài liệu",
+                    'title'=> "Thêm mới tài liệu" . $addText,
                     'content'=>$this->renderAjax('create', [
                         'model' => $model,
                     ]),
@@ -189,7 +212,12 @@ class DocsController extends Controller
         $request = Yii::$app->request;
         $model = $this->findModel($id);   
         $oldFilePath = Yii::getAlias('@webroot') . Docs::FOLDER_DOCUMENT .  $model->id . '.' . $model->doc_ext;
-
+        
+        $addText = '';
+        if($model->dm != null){
+            $addText = ' thuộc ' . $model->dm->name;
+        }
+        
         if($request->isAjax){
             /*
             *   Process for ajax request
@@ -197,7 +225,7 @@ class DocsController extends Controller
             Yii::$app->response->format = Response::FORMAT_JSON;
             if($request->isGet){
                 return [
-                    'title'=> "Cập nhật tài liệu",
+                    'title'=> "Cập nhật tài liệu" . $addText,
                     'content'=>$this->renderAjax('update', [
                         'model' => $model,
                     ]),
@@ -223,7 +251,7 @@ class DocsController extends Controller
                     
                     return [
                         'forceReload'=>'#crud-datatable-pjax',
-                        'title'=> "Tài liệu",
+                        'title'=> "Tài liệu" . $addText,
                         'content'=>$this->renderAjax('view', [
                             'model' => $model,
                         ]),
@@ -232,7 +260,7 @@ class DocsController extends Controller
                     ];    
                 } else {
                     return [
-                        'title'=> "Cập nhật tài liệu",
+                        'title'=> "Cập nhật tài liệu" . $addText,
                         'content'=>$this->renderAjax('update', [
                             'model' => $model,
                         ]),
@@ -242,7 +270,7 @@ class DocsController extends Controller
                 }
             }else{
                  return [
-                    'title'=> "Cập nhật tài liệu",
+                     'title'=> "Cập nhật tài liệu" . $addText,
                     'content'=>$this->renderAjax('update', [
                         'model' => $model,
                     ]),

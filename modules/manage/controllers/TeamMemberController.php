@@ -62,7 +62,7 @@ class TeamMemberController extends Controller
         if($request->isAjax){
             Yii::$app->response->format = Response::FORMAT_JSON;
             return [
-                    'title'=> "Xem đoàn kiểm tra",
+                    'title'=> "Xem đoàn đánh giá",
                     'content'=>$this->renderAjax('view', [
                         'model' => $this->findModel($id),
                     ]),
@@ -88,7 +88,7 @@ class TeamMemberController extends Controller
         if($request->isAjax){
             Yii::$app->response->format = Response::FORMAT_JSON;
             return [
-                'title'=> "Xem đoàn kiểm tra",
+                'title'=> "Xem đoàn đánh giá",
                 'content'=>$this->renderAjax('view', [
                     'model' => $this->findModel($id),
                 ]),
@@ -205,7 +205,7 @@ class TeamMemberController extends Controller
             }else if($model->load($request->post()) && $model->save()){
                 return [
                     'forceReload'=>'#crud-datatable-pjax',
-                    'title'=> "Xem thành viên đoàn kiểm tra",
+                    'title'=> "Xem thành viên đoàn đánh giá",
                     'content'=>$this->renderAjax('view', [
                         'model' => $model,
                     ]),

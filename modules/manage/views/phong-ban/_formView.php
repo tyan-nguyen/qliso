@@ -14,7 +14,7 @@ use johnitvn\ajaxcrud\CrudAsset;
 use johnitvn\ajaxcrud\BulkButtonWidget;
 CrudAsset::register($this);
 
-$this->title="Cuộc họp #" . $model->id;
+$this->title=$model->workingName;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\manage\models\Working */

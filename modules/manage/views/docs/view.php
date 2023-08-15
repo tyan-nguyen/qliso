@@ -34,17 +34,18 @@ use yii\widgets\DetailView;
             'code',
             'doc_name',
             'doc_ext',
-            'doc_url:url',
+            'doc_url:url',          
+            
+            'doc_no',
+            'doc_summary:ntext',
+            'doc_date',
+            'doc_sign',
             'summary:ntext',
             'user_created'=>[
                 'attribute'=>'user_created',
                 'value'=>$model->userCreated
             ],
             'date_created',
-            'doc_no',
-            'doc_summary:ntext',
-            'doc_date',
-            'doc_sign',
         ],
     ]) ?>
 

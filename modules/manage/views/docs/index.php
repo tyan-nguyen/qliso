@@ -12,14 +12,15 @@ use app\components\BulkButtomCustom;
 /* @var $searchModel app\modules\manage\models\DocsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Các đơn vị trực thuộc Hệ thống Quản lý chất lượng';
+//$this->title = 'Các đơn vị trực thuộc Hệ thống Quản lý chất lượng';
 $this->params['breadcrumbs'][] = $this->title;
 
 CrudAsset::register($this);
 
 ?>
 
-<?= $this->render('_search', ['searchModel' => $searchModel, 'curlink' => '']) ?>
+<?= ( $dm!=null ? $this->render('_searchDm', ['searchModel' => $searchModel, 'curlink' => '']) 
+: $this->render('_search', ['searchModel' => $searchModel, 'curlink' => '']) ) ?>
 
 <div class="docs-index">
 

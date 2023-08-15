@@ -46,8 +46,8 @@ class Working extends \app\models\BmWorking
         return [
             'id' => 'ID',
             'code' => 'Mã cuộc họp',
-            'id_examination' => 'Kỳ kiểm tra',
-            'id_room' => 'Phòng ban',
+            'id_examination' => 'Kỳ đánh giá',
+            'id_room' => 'Đơn vị',
             'date_exam' => 'Thời gian đánh giá',
             'date_created' => 'Ngày tạo',
             'user_created' => 'Người tạo',
