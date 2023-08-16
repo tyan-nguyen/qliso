@@ -48,7 +48,8 @@ return [
     ],
     [
         'header'=>'',
-        'class' => 'kartik\grid\ActionColumn',
+        'class' => 'app\components\ActionColumnCustom',
+        'options' => array('style' => 'width:250px'),
         'dropdown' => false,
         'vAlign'=>'middle',
         'urlCreator' => function($action, $model, $key, $index) { 
@@ -57,7 +58,7 @@ return [
         'template'=>'{allEx} {view} {update}',
         'buttons' => [
             'allEx' => function ($url, $model, $key) {
-                return yii\helpers\Html::a('<span class="glyphicon glyphicon-th-large"></span>',
+                return yii\helpers\Html::a('<span class="glyphicon glyphicon-th-large"></span> Quản lý cuộc họp',
                     Yii::getAlias('@web') . '/manage/working/index?idEx=' . $model->id
                     , [
                         'target'=>'_blank',
@@ -68,7 +69,6 @@ return [
                     ]);
             },
         ],
-        'options' => array('style' => 'width:150px'),
         'viewOptions'=>['role'=>'modal-remote','title'=>'View','data-toggle'=>'tooltip', 'class'=>'btn btn-primary btn-xs'],
         'updateOptions'=>['role'=>'modal-remote','title'=>'Update', 'data-toggle'=>'tooltip','class'=>'btn btn-warning btn-xs'],
         'deleteOptions'=>['role'=>'modal-remote','title'=>'Delete', 

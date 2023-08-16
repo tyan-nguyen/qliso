@@ -27,14 +27,14 @@ use kartik\date\DatePicker;
 
     <div class="row r-first">
     
-    <div class="col-md-2">
+    <!-- <div class="col-md-2"> -->
     		<?php 
     			/* if($searchModel->id_room != null){
     				$room = Room::findOne($searchModel->id_room);
     				$searchModel->idRoomParent = $room->room_parent;
     			} */
     		?>
-              <?= $form->field($searchModel, 'idRoomParent')->widget(Select2::classname(), [
+             <?php /* $form->field($searchModel, 'idRoomParent')->widget(Select2::classname(), [
               		'data' => (new RoomParent())->getList(),
                     'options' => ['placeholder' => 'Chọn khoa ...'],
                     'attribute' => 'idRoomParent',
@@ -55,17 +55,18 @@ use kartik\date\DatePicker;
                         }
                       }"
                     ]
-                ])->label('Khoa'); ?>
-            </div>
+                ])->label('Khoa'); */ ?>
+           <!--  </div>--> 
             <div class="col-md-3">
             	<?php 
-            		$data = array();
+            		/* $data = array();
 	            	if($searchModel->idRoomParent != null){
 	            		$data = (new Room())->getListByParent($searchModel->idRoomParent);
-	    			} 
+	    			}  */
     			?>
               <?= $form->field($searchModel, 'id_room')->widget(Select2::classname(), [
-                    'data' => $data,
+                    //'data' => $data,
+                    'data'=>(new Room())->getList(),
                     'options' => ['id'=>'id_room','placeholder' => 'Chọn phòng/bộ môn ...'],
                     'attribute' => 'id_room',
                     'pluginOptions' => [

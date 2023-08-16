@@ -106,16 +106,17 @@ return [
     ],
     [
         'header'=>'',
-        'class' => 'kartik\grid\ActionColumn',
+        'class' => 'app\components\ActionColumnCustom',
+        'options' => array('style' => 'width:250px'),
         'dropdown' => false,
         'vAlign'=>'middle',
         'urlCreator' => function($action, $model, $key, $index) { 
                 return Url::to([$action,'id'=>$key]);
         },
-        'template'=>'{download}  {view} {update}',
+        'template'=>'{download} {view} {update}',
         'buttons' => [
             'download' => function ($url, $model, $key) {
-            return yii\helpers\Html::a('<span class="glyphicon glyphicon-cloud-download"></span>',
+            return yii\helpers\Html::a('<span class="glyphicon glyphicon-cloud-download"></span> Tải về',
                 Yii::getAlias('@web') . '/manage/docs/download?id='
                 . $model->id
                 , [

@@ -10,7 +10,7 @@ use yii\helpers\Url;
 use yii\widgets\Pjax;
 use webvimark\extensions\GridBulkActions\GridBulkActions;
 use webvimark\extensions\GridPageSize\GridPageSize;
-use yii\grid\GridView;
+use kartik\grid\GridView;
 
 /**
  * @var yii\web\View $this
@@ -148,8 +148,19 @@ $this->params['breadcrumbs'][] = $this->title;
 					],
 					['class' => 'yii\grid\CheckboxColumn', 'options'=>['style'=>'width:10px'] ],
 					[
-						'class' => 'yii\grid\ActionColumn',
-						'contentOptions'=>['style'=>'width:70px; text-align:center;'],
+					    'class' => 'app\components\ActionColumnCustom',
+					    'options' => array('style' => 'width:250px'),
+						//'contentOptions'=>['style'=>'width:70px; text-align:center;'],
+					    'template'=>'{view} {update} {delete}',
+					    'viewOptions'=>['role'=>'modal-remote','title'=>'View','data-toggle'=>'tooltip', 'class'=>'btn btn-primary btn-xs'],
+					    'updateOptions'=>['role'=>'modal-remote','title'=>'Update', 'data-toggle'=>'tooltip','class'=>'btn btn-warning btn-xs'],
+					    'deleteOptions'=>['role'=>'modal-remote','title'=>'Delete',
+					        'class'=>'btn btn-danger btn-xs',
+					        'data-confirm'=>false, 'data-method'=>false,// for overide yii data api
+					        'data-request-method'=>'post',
+					        'data-toggle'=>'tooltip',
+					        'data-confirm-title'=>'Are you sure?',
+					        'data-confirm-message'=>'Are you sure want to delete this item'], 
 					],
 				],
 			]); ?>

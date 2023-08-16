@@ -19,13 +19,13 @@ return [
         'attribute'=>'room_name',
     ],
     [
-        'class' => 'kartik\grid\ActionColumn',
+        'class' => 'app\components\ActionColumnCustom',
+        'options' => array('style' => 'width:250px'),
         'dropdown' => false,
         'vAlign'=>'middle',
         'urlCreator' => function($action, $model, $key, $index) { 
                 return Url::to([$action,'id'=>$key]);
         },
-        'options' => array('style' => 'width:150px'),
         'viewOptions'=>['role'=>'modal-remote','title'=>'Xem','data-toggle'=>'tooltip','class'=>'btn btn-primary btn-xs'],
         'updateOptions'=>['role'=>'modal-remote','title'=>'Sửa', 'data-toggle'=>'tooltip','class'=>'btn btn-warning btn-xs'],
         'deleteOptions'=>['role'=>'modal-remote','title'=>'Xóa',

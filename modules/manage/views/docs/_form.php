@@ -64,7 +64,7 @@ use app\modules\manage\models\Dm;
 	
 	<?php if ($model->dm == null):?>
 	<div class="row">
-    <div class="col-md-6">
+    <!-- <div class="col-md-6">
      <?php 
 			if($model->id_room != null){
 				$room = Room::findOne($model->id_room);
@@ -95,16 +95,17 @@ use app\modules\manage\models\Dm;
                 ]
             ])->label('Khoa'); ?>
             
-        </div>
-     <div class="col-md-6">       
+        </div> -->
+     <div class="col-md-12">       
             <?php 
-        		$data = array();
+        		/* $data = array();
             	if($model->idRoomParent != null){
             		$data = (new Room())->getListByParent($model->idRoomParent);
-    			} 
+    			}  */
 			?>
           <?= $form->field($model, 'id_room')->widget(Select2::classname(), [
-                'data' => $data,
+                //'data' => $data,
+               'data'=>(new Room())->getList(),
                 'options' => ['id'=>'id_room_frm','placeholder' => 'Chọn phòng/bộ môn ...'],
                 'attribute' => 'id_room',
                 'pluginOptions' => [

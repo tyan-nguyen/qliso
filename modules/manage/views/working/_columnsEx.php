@@ -62,7 +62,8 @@ return [
     // ],
     [
         'header'=>'',
-        'class' => 'kartik\grid\ActionColumn',
+        'class' => 'app\components\ActionColumnCustom',
+        'options' => array('style' => 'width:250px'),
         'dropdown' => false,
         'vAlign'=>'middle',
         'urlCreator' => function($action, $model, $key, $index) { 
@@ -82,7 +83,6 @@ return [
                 ]);
             },
             ], */
-            'options' => array('style' => 'width:150px'),
             'viewOptions'=>['role'=>'modal-remote1', 'data-pjax'=>0, 'target'=>'_blank', 'title'=>'View','data-toggle'=>'tooltip', 'class'=>'btn btn-primary btn-xs'],
             'updateOptions'=>['role'=>'modal-remote','title'=>'Update', 'data-toggle'=>'tooltip','class'=>'btn btn-warning btn-xs'],
         'deleteOptions'=>['role'=>'modal-remote','title'=>'Delete', 

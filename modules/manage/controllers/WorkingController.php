@@ -222,7 +222,7 @@ class WorkingController extends Controller
             Yii::$app->response->format = Response::FORMAT_JSON;
             if($request->isGet){
                 return [
-                    'title'=> "Cập nhật lịch họp #".$id,
+                    'title'=> "Cập nhật " . $model->workingName,
                     'content'=>$this->renderAjax('update', [
                         'model' => $model,
                     ]),
@@ -232,14 +232,14 @@ class WorkingController extends Controller
             }else if($model->load($request->post()) && $model->save()){
                 return [
                     'forceReload'=>'#crud-datatable-pjax',
-                    'title'=> "Cập nhật lịch họp #".$id,
+                    'title'=> "Cập nhật " . $model->workingName,
                     'content'=>'Cập nhật thông tin thành công!',
                     'footer'=> Html::button('Close',['class'=>'btn btn-default pull-left','data-dismiss'=>"modal"]).
                     Html::a('Edit',['update','id'=>$id],['class'=>'btn btn-primary','role'=>'modal-remote'])
                 ];
             }else{
                 return [
-                    'title'=> "Cập nhật lịch họp #".$id,
+                    'title'=> "Cập nhật " . $model->workingName,
                     'content'=>$this->renderAjax('update', [
                         'model' => $model,
                     ]),
